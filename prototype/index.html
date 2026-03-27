@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParkaLot - Secure Parking </title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>ParkaLot Group</h1>
+    <p>Parking Management System</p>
+  </header>
+  <nav class="login-only" style="display: none;">
+    <a href="customer-portal.html">Dashboard</a>
+    <a href="staff-dashboard.html">Staff</a>
+    <a href="manager-dashboard.html">Manager</a>
+    <a href="billing.html">Billing</a>
+    <button onclick="logout()">Logout</button>
+  </nav>
+  <div class="container">
+    <div id="login-form" class="guest-only card">
+      <h2>Login / Register</h2>
+      <form onsubmit="event.preventDefault(); login(email.value, pass.value);">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="pass" placeholder="Password" required>
+        <button type="submit">Login</button>
+        <p>Demo: test@example.com / password</p>
+      </form>
+    </div>
+    <div id="welcome" class="login-only card" style="display: none;">
+      <h2>Welcome, <span id="user-name"></span>!</h2>
+      <p><a href="customer-portal.html">Go to Customer Portal</a></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    updateUI();
+    if (user) document.getElementById('user-name').textContent = user.name;
+  </script>
+</body>
+</html>
+
